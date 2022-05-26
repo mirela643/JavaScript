@@ -1,0 +1,18 @@
+const alphabet=["A","B","C","D","E","F","G","H","I","J","K","L",
+"M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+function rot13(str) {
+  let newstr="";
+  for(let i=0;i<str.length;i++){
+    const char=str[i];
+    const isLetter=alphabet.includes(char);
+    if(isLetter===false){
+      newstr+=char;
+    }else{
+      const index=alphabet.findIndex((c)=>c===char);
+      newstr+=alphabet[index+13] || alphabet[index-13];
+    }
+  }
+  return newstr;
+}
+
+console.log(rot13("SERR YBIR?"));
